@@ -21,17 +21,18 @@ class ServicoForm(forms.ModelForm):
     def clean_valor_minimo(self):
         data = self.cleaned_data['valor_minimo']
         return Decimal(data.replace(',', '.'))
+  
     
     def clean_porcentagem_comissao(self):
         data = self.cleaned_data['porcentagem_comissao']
         return Decimal(data.replace(',', '.'))
 
-    
+
     def clean_valor_quarto(self):
         data = self.cleaned_data['valor_quarto']
         return Decimal(data.replace(',', '.'))
 
-    
+  
     def clean_valor_sala(self):
         data = self.cleaned_data['valor_sala']
         return Decimal(data.replace(',', '.'))
