@@ -14,6 +14,8 @@ Listagem de usuários
             <thead>
                 <tr>
                     <th>Usuário</th>
+                    <th>Primeiro Nome</th>
+                    <th>Email</th>
                     <th>Ações</th>
                 </tr>
                 
@@ -22,6 +24,8 @@ Listagem de usuários
                 {% for usuario in usuarios %}
                     <tr>
                         <td>{{usuario.username}}</td>
+                        <td>{{usuario.first_name}}</td>
+                        <td>{{usuario.email}}</td>
                         <td>
                             <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
                         </td>

@@ -1,8 +1,10 @@
 from ..forms.usuario_forms import CadastroUsuarioForm, EditarUsuarioForm
 from django.shortcuts import redirect, render
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 
 # Cadastrando um usuário
+@login_required
 def cadastrar_usurario(request):
     if request.method == "POST":
         form_usuario = CadastroUsuarioForm(request.POST)
@@ -15,6 +17,7 @@ def cadastrar_usurario(request):
 
 
 # Listando os usuários administradores cadastrados
+@login_required
 def listar_usuarios(request):
     User = get_user_model()
     usuarios = User.objects.filter(is_superuser=True)
@@ -22,6 +25,7 @@ def listar_usuarios(request):
 
 
 # Editando os usuários administradores
+@login_required
 def editar_usuario(request, id):
     User = get_user_model()
     usuario = User.objects.get(id=id)
